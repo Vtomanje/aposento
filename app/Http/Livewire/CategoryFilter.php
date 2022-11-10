@@ -14,7 +14,7 @@ class CategoryFilter extends Component
 {
     use WithPagination;
 
-    public $category, $subcategories,$user;
+    public $category, $subcategories, $brands, $user;
 
     public $view = "grid";
 
@@ -26,7 +26,7 @@ class CategoryFilter extends Component
     }
 
     public function clear(){
-        $this->reset(['subcategories','page']);
+        $this->reset(['subcategories', 'brands', 'page']);
     }
 
 
@@ -34,9 +34,9 @@ class CategoryFilter extends Component
         $this->resetPage();
     }
 
- /*    public function updatedBrand(){
+   public function updatedBrand(){
         $this->resetPage();
-    } */
+    } 
 
     public function render()
     {
@@ -54,11 +54,11 @@ class CategoryFilter extends Component
             });
         }
 
-       /*  if ($this->brand) {
+       if ($this->brands) {
             $productsQuery = $productsQuery->whereHas('brand', function(Builder $query){
-                $query->where('name', $this->brand);
+                $query->where('name', $this->brands);
             });
-        } */
+        } 
 
         $products = $productsQuery->paginate(20);
 

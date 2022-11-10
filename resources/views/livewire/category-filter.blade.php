@@ -14,11 +14,11 @@
 
         <aside>
 
-            <h2 class="font-semibold text-center mb-2">Subcategories</h2>
+            <h2 class="font-semibold text-center mb-2">Subcategorías</h2>
             <ul class="divide-y divide-gray-200">
                 @foreach ($category->subcategories as $subcategory)
                     <li class="py-2 text-sm">
-                        <a class="cursor-pointer hover:text-orange-500 capitalize {{ $subcategories == $subcategory->slug ? 'text-orange-500 font-semibold' : '' }}"
+                        <a class="cursor-pointer hover:text-fuchsia-500 capitalize {{ $subcategories == $subcategory->slug ? 'text-fuchsia-500 font-semibold' : '' }}"
                             wire:click="$set('subcategories', '{{$subcategory->slug}}')">
                         {{$subcategory->name}}
                         </a>
@@ -26,13 +26,12 @@
                 @endforeach
             </ul>
 
-            <h2 class="font-semibold text-center mt-4 mb-2">Brands</h2>
+            <h2 class="font-semibold text-center mt-4 mb-2">Marcas</h2>
             <ul class="divide-y divide-gray-200">
                 @foreach ($category->brands as $brand)
                     <li class="py-2 text-sm">
-                        <a class="cursor-pointer hover:text-orange-500 capitalize {{ $brand == $brand->name ? 'text-orange-500 font-semibold' : ''}}"
-                            wire:click="$set('brand', '{{$brand->name}}')"
-                        >
+                        <a class="cursor-pointer hover:text-fuchsia-500 capitalize {{ $brands == $brand->name ? 'text-fuchsia-500 font-semibold' : ''}}"
+                            wire:click="$set('brands', '{{$brand->name}}')">
                             {{$brand->name}}
                         </a>
                     </li>
@@ -40,7 +39,7 @@
             </ul>
 
             <x-jet-button class="mt-4" wire:click="clear">
-               Filter Delete
+               Eliminar Filtros
             </x-jet-button>
         </aside>
 
@@ -49,8 +48,6 @@
 
                 <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     @forelse ($products as $product)
-                   
-                        
                         <li class="bg-white rounded-lg shadow">
                             <article>
                                 <figure>
@@ -62,19 +59,18 @@
                                             <a href="{{-- {{ route('products.show', $product) }} --}}">
                                                 {{Str::limit($product->name, 20)}}
                                             </a>
-                                        </h1>                                    
+                                        </h1>
+
+                                        <p class="font-bold text-trueGray-700">US$ {{$product->price}}</p>
                                 </div>
                             </article>
                         </li>
-
-                 
-
 
                     @empty
                         <li class="md:col-span-2 lg:col-span-4">
                             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                                 <strong class="font-bold">Upss!</strong>
-                                <span class="block sm:inline">There is no product with that filter.</span>
+                                <span class="block sm:inline">No existe ningún producto con ese filtro.</span>
                             </div>
                         </li>
                     @endforelse
@@ -84,13 +80,13 @@
                 <ul>
                     @forelse ($products as $product)
                         
-                            {{-- <x-product-list :product="$product" /> --}}
-                       
+                        {{-- <x-product-list :product="$product" /> --}}
+
                     @empty
 
                         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                             <strong class="font-bold">Upss!</strong>
-                            <span class="block sm:inline">There is no product with that filter.</span>
+                            <span class="block sm:inline">No existe ningún producto con ese filtro.</span>
                         </div>
 
                     @endforelse
@@ -104,4 +100,3 @@
 
     </div>
 </div>
-   
