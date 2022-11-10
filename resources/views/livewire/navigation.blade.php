@@ -5,9 +5,9 @@
         <a href="/"><x-logo class="block h-9 w-auto" /></a>  
 
         {{-- categorias --}}
-        <a class="flex border p-2 shadow bg-fuchsia-500  hover:bg-fuchsia-600 transition duration-300 ease-in-out rounded-md mx-2 cursor-pointer" 
+        <a class="flex border p-2 shadow bg-fuchsia-500  hover:bg-fuchsia-700 transition duration-300 ease-in-out rounded-md mx-2 cursor-pointer" 
         x-on:click="show()"
-        class="flex flex-col items-center justify-center order-last md:order-first px-6 md:px-4 text-black cursor-pointer ">
+        class="flex flex-col items-center justify-center  order-last md:order-first px-6 md:px-4 text-black cursor-pointer ">
         
             <svg class="h-6 mr-3 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />               
@@ -94,7 +94,7 @@
                 {{-- categories --}}                                       
                 @foreach ($categories as $category)
                     <li class="navigation-link text-trueGray-500 hover:bg-fuchsia-500 hover:text-white">
-                        <a href="{{-- {{ route('categories.show', $category )}} --}}" class="py-2 px-4 text-sm flex items-center">
+                        <a href="{{ route('categories.show', $category )}}" class="py-2 px-4 text-sm flex items-center">
                             {{-- category icon --}}
                             
                             {{$category->name}}
@@ -124,16 +124,14 @@
         <ul>
             @foreach ($categories as $category)
                 <li class="text-trueGray-500 hover:bg-black hover:text-white">
-                    <a href="{{-- {{ route('categories.show', $category )}} --}}" class="py-2 px-4 text-sm flex items-center">
-                        {{-- category icon
-                        <span class="flex justify-center w-9">{!!$category->icon!!}</span> --}}
+                    <a href="{{ route('categories.show', $category )}}" class="py-2 px-4 text-sm flex items-center">
                         {{$category->name}}
                     </a>                                            
                 </li>      
             @endforeach
         </ul>
          {{-- login and register --}}
-        <p class="text-black bg-lime-400 px-6 py-2">Users</p>
+        <p class="text-black bg-lime-400 px-6 py-2">Usuario</p>
 
          {{-- mobile cart shop 
          @livewire('cart-mobil')--}}

@@ -5,9 +5,17 @@
 
     @livewire('barra-categorias')
 
-    <div class="container py-10">
+    <section class="container py-10">
+        <div class="flex items-center mb-3">
+            <h2 class="fond-bold tex-gray-700 text-lg uppercase">Escoge tu categoría</h2>
+                
+            {{-- <a href="{{ route('categories.show', $category )}}" class="text-fuchsia-500 hover:text-violet-500 hover:underline ml-3 font-semibold">Ver más...</a> --}}
+
+        </div>
+       
+
         @livewire('categories-slider', ['categories' => $categories]) 
-    </div>
+    </section>
 
     @livewire('barra-anuncio')
 

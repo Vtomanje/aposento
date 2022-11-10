@@ -8,10 +8,11 @@
                     <article>
                         <figure>
                             <img class="h-80 w-full object-cover object-center" src="{{Storage::url($category->image) }}" alt="">
+                            
                         </figure>
-                        <div class="py-4 px-2">
+                        <div class="py-4 px-2 text-center">
                             <h1 class="text-sm font-semibold">
-                                <a href="{{-- {{ route('categories.show', $category )}} --}}">
+                                <a href="{{ route('categories.show', $category )}}" class="text-lg">
                                     {{$category->name}}
                                 </a>
                             </h1>
